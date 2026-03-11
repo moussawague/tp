@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="UseCompoundDrawables"
+    android:paddingTop="10dp"
+    android:weightSum="10">
+
+    <!-- Espace gauche (10%) -->
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.5" />
+
+    <!-- ListView (80%) -->
+    <ListView
+        android:layout_marginTop="100dp"
+        android:id="@+id/list_users"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp" />
+
+    <!-- Espace droit (10%) -->
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.5" />
+
+</LinearLayout>

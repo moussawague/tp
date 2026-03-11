@@ -1,0 +1,201 @@
+[
+  {
+    "id": 1,
+    "userName": "Johann Tixier",
+    "floor": 2,
+    "area": 45.5,
+    "appliances": [
+      {
+        "id": 1,
+        "name": "Climatiseur",
+        "reference": "AC-3000",
+        "wattage": 1500
+      },
+      {
+        "id": 2,
+        "name": "Aspirateur",
+        "reference": "VC-42X",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userName": "Sam Asty",
+    "floor": 1,
+    "area": 60.0,
+    "appliances": [
+      {
+        "id": 3,
+        "name": "Machine à laver",
+        "reference": "WM-500",
+        "wattage": 2000
+      },
+      {
+        "id": 4,
+        "name": "Fer à repasser",
+        "reference": "IR-15A",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userName": "Alice Dupont",
+    "floor": 3,
+    "area": 55.0,
+    "appliances": [
+      {
+        "id": 1,
+        "name": "Climatiseur",
+        "reference": "AC-3000",
+        "wattage": 1500
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userName": "Marc Leblanc",
+    "floor": 4,
+    "area": 70.0,
+    "appliances": [
+      {
+        "id": 1,
+        "name": "Climatiseur",
+        "reference": "AC-3000",
+        "wattage": 1500
+      },
+      {
+        "id": 3,
+        "name": "Machine à laver",
+        "reference": "WM-500",
+        "wattage": 2000
+      },
+      {
+        "id": 2,
+        "name": "Aspirateur",
+        "reference": "VC-42X",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "userName": "Sophie Martin",
+    "floor": 1,
+    "area": 42.0,
+    "appliances": [
+      {
+        "id": 4,
+        "name": "Fer à repasser",
+        "reference": "IR-15A",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "userName": "Pierre Dubois",
+    "floor": 5,
+    "area": 80.0,
+    "appliances": [
+      {
+        "id": 1,
+        "name": "Climatiseur",
+        "reference": "AC-3000",
+        "wattage": 1500
+      },
+      {
+        "id": 2,
+        "name": "Aspirateur",
+        "reference": "VC-42X",
+        "wattage": 1200
+      },
+      {
+        "id": 3,
+        "name": "Machine à laver",
+        "reference": "WM-500",
+        "wattage": 2000
+      },
+      {
+        "id": 4,
+        "name": "Fer à repasser",
+        "reference": "IR-15A",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "userName": "Emma Rousseau",
+    "floor": 2,
+    "area": 50.0,
+    "appliances": [
+      {
+        "id": 3,
+        "name": "Machine à laver",
+        "reference": "WM-500",
+        "wattage": 2000
+      },
+      {
+        "id": 2,
+        "name": "Aspirateur",
+        "reference": "VC-42X",
+        "wattage": 1200
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "userName": "Lucas Bernard",
+    "floor": 3,
+    "area": 48.0,
+    "appliances": []
+  },
+  {
+    "id": 9,
+    "userName": "Chloé Petit",
+    "floor": 4,
+    "area": 65.0,
+    "appliances": [
+      {
+        "id": 1,
+        "name": "Climatiseur",
+        "reference": "AC-3000",
+        "wattage": 1500
+      },
+      {
+        "id": 4,
+        "name": "Fer à repasser",
+        "reference": "IR-15A",
+        "wattage": 1200
+      },
+      {
+        "id": 3,
+        "name": "Machine à laver",
+        "reference": "WM-500",
+        "wattage": 2000
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "userName": "Thomas Moreau",
+    "floor": 1,
+    "area": 52.0,
+    "appliances": [
+      {
+        "id": 2,
+        "name": "Aspirateur",
+        "reference": "VC-42X",
+        "wattage": 1200
+      },
+      {
+        "id": 4,
+        "name": "Fer à repasser",
+        "reference": "IR-15A",
+        "wattage": 1200
+      }
+    ]
+  }
+]
