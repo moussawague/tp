@@ -41,7 +41,7 @@ public class FirstFragment extends Fragment {
     private void loadUsers() {
 
         Ion.with(this)
-                .load("http://192.168.1.118/powerhome_server/resident.php")
+                .load("http://10.125.132.163/powerhome_server/resident.php")
                 .as(new TypeToken<ArrayList<Resident>>() {})
                 .setCallback((e, result) -> {
 
@@ -60,7 +60,7 @@ public class FirstFragment extends Fragment {
     private void loadHabitats() {
 
         Ion.with(this)
-                .load("http://192.168.1.118/powerhome_server/habitat.php")
+                .load("http://10.125.132.163/powerhome_server/habitat.php")
                 .as(new TypeToken<ArrayList<Habitat>>() {})
                 .setCallback((e, result) -> {
 
@@ -80,7 +80,7 @@ public class FirstFragment extends Fragment {
     private void loadAppliances() {
 
         Ion.with(this)
-                .load("http://192.168.1.118/powerhome_server/appliance.php")
+                .load("http://10.125.132.163/powerhome_server/appliance.php")
                 .as(new TypeToken<ArrayList<Appliance>>() {})
                 .setCallback((e, result) -> {
 
