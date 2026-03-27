@@ -12,22 +12,22 @@
     <ImageView
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/logo_app"
         android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Android Studio"
+        android:text="Résidence participative"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"/>
+        android:textColor="@color/white"
+        android:text="email"/>
 
 </LinearLayout>

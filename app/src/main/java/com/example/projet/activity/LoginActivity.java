@@ -40,29 +40,35 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public void goToRegister(View v) {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     public void func(View v){
+
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextNumberPassword);
 
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
-        Toast t1 = Toast.makeText(v.getContext(), "Connexion réussie", Toast.LENGTH_SHORT);
-        Toast t2 = Toast.makeText(v.getContext(), "Email ou mot de passe incorrect", Toast.LENGTH_SHORT);
-        if(verifyAccount(accounts, emailText, passwordText)){
-            t1.show();
+
+        Resident user = verifyAccount(accounts, emailText, passwordText);
+
+        if(user != null){
+            Toast.makeText(v.getContext(), "Connexion réussie", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            intent.putExtra("user_id", user.getId());
             startActivity(intent);
-        }
-        else{
-            t2.show();
+        } else {
+            Toast.makeText(v.getContext(), "Email ou mot de passe incorrect", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void loadAccount() {
 
         Ion.with(this)
-                .load("http://10.125.132.163/powerhome_server/resident.php")
+                .load("http://192.168.1.118/powerhome_server/resident.php")
                 .as(new TypeToken<ArrayList<Resident>>() {})
                 .setCallback((e, result) -> {
 
@@ -76,12 +82,12 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private Boolean verifyAccount(List<Resident> accounts, String email, String password){
-        for (Resident account:accounts){
+    private Resident verifyAccount(List<Resident> accounts, String email, String password){
+        for (Resident account : accounts){
             if(email.equals(account.getEmail()) && password.equals(account.getPassword())){
-                return true;
+                return account;
             }
         }
-        return false;
+        return null;
     }
 }

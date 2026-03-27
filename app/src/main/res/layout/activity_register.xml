@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/black"
         app:navigationIcon="@drawable/outline_arrow_back_24"
-        app:title="Connectez vous"
+        app:title="Créer un compte"
         app:titleTextColor="@color/white" />
 
     <LinearLayout
@@ -22,109 +22,113 @@
         android:orientation="vertical"
         android:gravity="center">
 
-
-
-
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Identifiez-vous"
+            android:text="Inscrivez-vous"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="30dp"/>
 
+        <!-- Nom -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="40dp"
             android:layout_margin="15dp">
 
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
+        <!-- Email -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp">
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
         </LinearLayout>
 
+        <!-- Mot de passe -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
             android:layout_margin="15dp">
 
-
-
             <EditText
-                android:id="@+id/editTextNumberPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mot de passe"
                 android:inputType="textPassword" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button"
+        <!-- Confirmer mot de passe -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="#1877F2"
-            android:text="MOT DE PASSE OUBLIÉ ?"
-            android:textAlignment="viewEnd"
-            />
+            android:orientation="horizontal"
+            android:layout_margin="15dp">
 
+            <EditText
+                android:id="@+id/editTextConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirmer le mot de passe"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <!-- Bouton inscription -->
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF9800"
             android:textColor="@color/white"
             android:layout_marginTop="40dp"
-            android:text="CONNECTEZ-VOUS"
+            android:text="S'INSCRIRE"
             android:layout_margin="15dp"
-            app:cornerRadius="0px"
-            android:onClick="func"/>
+            app:cornerRadius="0dp"
+            android:onClick="registerUser"/>
 
+        <!-- Retour login -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="20dp">
+            android:layout_margin="15dp">
 
             <Button
-                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:textColor="#8C8C8C"
                 android:textAllCaps="false"
-                android:text="Nouveau sur Jumia?" />
+                android:text="Déjà un compte ?" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/buttonLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:textColor="#1877F2"
-                android:text="CREER UN COMPTE"
-                android:onClick="goToRegister"/>
+                android:text="SE CONNECTER"
+                android:onClick="goToLogin"/>
         </LinearLayout>
-
-
-
-
-
 
     </LinearLayout>
 

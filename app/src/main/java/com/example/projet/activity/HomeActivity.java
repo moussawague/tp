@@ -4,9 +4,12 @@ package com.example.projet.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -14,9 +17,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.projet.R;
+import com.example.projet.entities.Resident;
 import com.example.projet.fragment.FirstFragment;
-import com.example.projet.fragment.SecondFragment;
+import com.example.projet.fragment.ProfileFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.koushikdutta.ion.Ion;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,11 +30,17 @@ public class HomeActivity extends AppCompatActivity
     private NavigationView navNV;
     private ActionBarDrawerToggle toggle;
     private FragmentManager fm;
+    private int userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        userId = getIntent().getIntExtra("user_id", -1); // ✅ récupéré ici
+
+        loadResidentHeader();
 
         drawerDL = findViewById(R.id.drawer);
         navNV = findViewById(R.id.nav_view);
@@ -61,7 +72,23 @@ public class HomeActivity extends AppCompatActivity
             fragment = new FirstFragment();
 
         } else if (item.getItemId() == R.id.nav_second) {
-            fragment = new SecondFragment();
+            ProfileFragment profileFragment = new ProfileFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putInt("user_id", userId);
+
+            profileFragment.setArguments(bundle);
+
+            fragment = profileFragment;
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Déconnexion")
+                    .setMessage("Voulez-vous vraiment vous déconnecter ?")
+                    .setPositiveButton("Oui", (dialog, which) -> {
+                        finish();
+                    })
+                    .setNegativeButton("Annuler", null)
+                    .show();
         }
 
         if (fragment != null) {
@@ -80,5 +107,21 @@ public class HomeActivity extends AppCompatActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadResidentHeader() {
+
+        Ion.with(this)
+                .load("http://192.168.1.118/powerhome_server/residentById.php?id=" + userId)
+                .as(Resident.class)
+                .setCallback((e, result) -> {
+
+                    if (e != null || result == null) return;
+
+                    View headerView = navNV.getHeaderView(0);
+                    TextView tvEmail = headerView.findViewById(R.id.tvEmail);
+
+                    tvEmail.setText(result.getEmail()); // ✅ ici magie
+                });
     }
 }

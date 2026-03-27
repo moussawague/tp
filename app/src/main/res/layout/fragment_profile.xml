@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mon Profil"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prenom"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editPrenom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prénom"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"/>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mettre à jour"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

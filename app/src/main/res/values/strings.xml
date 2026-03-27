@@ -4,8 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open navigation drawer</string>
     <string name="close">Close navigation drawer</string>
-    <string name="fragment1">Fragment 1</string>
-    <string name="fragment2">Fragment 2</string>
+    <string name="fragment1">Liste des habitats</string>
+    <string name="fragment2">Profil</string>
+    <string name="deconnexion">Déconnetion</string>
+    <string name="menu5">À propos</string>
     <string name="floor">ETAGE</string>
     <string name="appliance">équipement</string>
     <string name="appliances">appliances</string>
