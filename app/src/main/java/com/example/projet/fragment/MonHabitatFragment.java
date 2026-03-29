@@ -31,7 +31,6 @@ public class MonHabitatFragment extends Fragment {
     private ApplianceAdapter1 applianceAdapter;
     private List<Appliance> applianceList = new ArrayList<>();
 
-    // Listes temporaires pour le reliage (comme dans FirstFragment)
     private List<Resident> allResidents = new ArrayList<>();
     private List<Habitat> allHabitats = new ArrayList<>();
     private List<Appliance> allAppliances = new ArrayList<>();
@@ -50,13 +49,11 @@ public class MonHabitatFragment extends Fragment {
         applianceAdapter = new ApplianceAdapter1(applianceList);
         recyclerAppliances.setAdapter(applianceAdapter);
 
-        // On lance la chaîne de chargement
         loadResidents();
 
         return view;
     }
 
-    // 1. Charger tous les résidents
     private void loadResidents() {
         Ion.with(this)
                 .load("http://192.168.1.118/powerhome_server/resident.php")
@@ -80,7 +77,6 @@ public class MonHabitatFragment extends Fragment {
                 });
     }
 
-    // 3. Charger tous les appareils
     private void loadAppliances() {
         Ion.with(this)
                 .load("http://192.168.1.118/powerhome_server/appliance.php")
@@ -89,7 +85,6 @@ public class MonHabitatFragment extends Fragment {
                     if (e != null) return;
                     allAppliances = result;
 
-                    // Une fois que tout est chargé, on lie les données
                     processData();
                 });
     }
@@ -98,7 +93,6 @@ public class MonHabitatFragment extends Fragment {
         int myUserId = 1; // L'ID de l'utilisateur connecté (Moussa)
         Resident myResident = null;
 
-        // Étape A : Relier les Habitats aux Résidents
         for (Resident r : allResidents) {
             for (Habitat h : allHabitats) {
                 if (h.getIdUser() == r.getId()) {
@@ -110,11 +104,9 @@ public class MonHabitatFragment extends Fragment {
             }
         }
 
-        // Étape B : Relier les Appareils aux Habitats
         for (Habitat h : allHabitats) {
             List<Appliance> appliancesForThisHabitat = new ArrayList<>();
             for (Appliance a : allAppliances) {
-                // Utilise getIdHabitat() ou habitat_id selon ton entité Appliance
                 if (a.getIdHabitat() == h.getId()) {
                     appliancesForThisHabitat.add(a);
                 }
@@ -122,15 +114,12 @@ public class MonHabitatFragment extends Fragment {
             h.setAppliances(appliancesForThisHabitat);
         }
 
-        // Étape C : Affichage des données de "Mon Habitat"
         if (myResident != null && myResident.getHabitat() != null) {
             Habitat myHabitat = myResident.getHabitat();
 
-            // Remplissage des textes
             txtFloor.setText("Étage : " + myHabitat.getFloor());
-            txtArea.setText("Surface : " +   " m²");
+            txtArea.setText("Surface : " +myHabitat.getArea()+" m²");
 
-            // Remplissage de la liste des appareils pour le RecyclerView
             if (myHabitat.getAppliances() != null) {
                 applianceList.clear();
                 applianceList.addAll(myHabitat.getAppliances());
