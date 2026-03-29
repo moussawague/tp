@@ -1,30 +1,22 @@
 package com.example.projet.entities;
 
-import java.time.LocalDateTime;
-
 public class Booking {
     private int order;
-    private LocalDateTime bookedAt;
-
+    private int timeslot_id; // Pour faire le lien avec le TimeSlot
+    private String bookedAt;
     private Appliance appliance;
-    private TimeSlot timeSlot;
 
     public Booking() {}
-
-    public Booking(int order, LocalDateTime bookedAt) {
-        this.order = order;
-        this.bookedAt = bookedAt;
-    }
 
     public int getOrder() { return order; }
     public void setOrder(int order) { this.order = order; }
 
-    public LocalDateTime getBookedAt() { return bookedAt; }
-    public void setBookedAt(LocalDateTime bookedAt) { this.bookedAt = bookedAt; }
+    public int getTimeSlotId() { return timeslot_id; }
+    public void setTimeSlotId(int timeslot_id) { this.timeslot_id = timeslot_id; }
+
+    public String getBookedAt() { return bookedAt; }
+    public void setBookedAt(String bookedAt) { this.bookedAt = bookedAt; }
 
     public Appliance getAppliance() { return appliance; }
     public void setAppliance(Appliance appliance) { this.appliance = appliance; }
-
-    public TimeSlot getTimeSlot() { return timeSlot; }
-    public void setTimeSlot(TimeSlot timeSlot) { this.timeSlot = timeSlot; }
 }

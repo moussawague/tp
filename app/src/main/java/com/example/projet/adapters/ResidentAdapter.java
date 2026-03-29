@@ -1,4 +1,4 @@
-package com.example.projet;
+package com.example.projet.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projet.R;
 import com.example.projet.entities.Resident;
 import com.example.projet.entities.Habitat;
 

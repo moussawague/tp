@@ -5,8 +5,11 @@
     <string name="open">Open navigation drawer</string>
     <string name="close">Close navigation drawer</string>
     <string name="fragment1">Liste des habitats</string>
-    <string name="fragment2">Profil</string>
-    <string name="deconnexion">Déconnetion</string>
+    <string name="fragment2">Mon habitat</string>
+    <string name="fragment3">Calendrier</string>
+    <string name="fragment4">Mes notifications</string>
+    <string name="fragment5">À propos</string>
+    <string name="deconnexion">Compte</string>
     <string name="menu5">À propos</string>
     <string name="floor">ETAGE</string>
     <string name="appliance">équipement</string>

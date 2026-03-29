@@ -1,49 +1,57 @@
 package com.example.projet.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import com.example.projet.R;
+import com.example.projet.activity.MainActivity;
 import com.example.projet.entities.Resident;
 import com.google.gson.reflect.TypeToken;
 import com.koushikdutta.ion.Ion;
-
-import java.util.ArrayList;
-
 
 public class ProfileFragment extends Fragment {
 
     private Resident resident;
     private EditText editNom, editPrenom, editEmail;
-    private Button btnUpdate;
+    private Button btnUpdate, btnDeco;
     private int userId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        if (getArguments() != null) {
-            userId = getArguments().getInt("user_id");
-        }
-
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        // 🔹 Récup userId
+        if (getArguments() != null) {
+            userId = getArguments().getInt("user_id", -1);
+        }
+
+        // 🔹 Init views
         editNom = view.findViewById(R.id.editNom);
         editPrenom = view.findViewById(R.id.editPrenom);
         editEmail = view.findViewById(R.id.editEmail);
         btnUpdate = view.findViewById(R.id.btnUpdate);
+        btnDeco = view.findViewById(R.id.btnDeco);
 
+        // 🔹 Click update
         btnUpdate.setOnClickListener(v -> updateProfile());
 
-        loadResident(); // 👈 on appelle après init des views
+        // 🔹 Click déconnexion
+        btnDeco.setOnClickListener(v -> deconnection());
+
+        // 🔹 Charger données
+        loadResident();
 
         return view;
     }
@@ -70,19 +78,24 @@ public class ProfileFragment extends Fragment {
                     }
 
                     Log.d("ION_UPDATE", "Réponse : " + result);
-
                     Toast.makeText(getContext(), "Profil mis à jour", Toast.LENGTH_SHORT).show();
                 });
     }
 
-    private void loadResident(){
-        Ion.with(this)
-                .load("http://192.168.1.118/powerhome_server/residentById.php?id="+userId)
+    private void loadResident() {
+
+        if (userId == -1) {
+            Log.e("PROFILE", "userId invalide");
+            return;
+        }
+
+        Ion.with(getContext())
+                .load("http://192.168.1.118/powerhome_server/residentById.php?id=" + userId)
                 .as(new TypeToken<Resident>() {})
                 .setCallback((e, result) -> {
 
                     if (e != null) {
-                        Log.e("ION_USERS", "Erreur users", e);
+                        Log.e("ION_USERS", "Erreur", e);
                         return;
                     }
 
@@ -96,5 +109,23 @@ public class ProfileFragment extends Fragment {
 
                     Log.d("ION_USERS", "Resident chargé");
                 });
+    }
+
+    private void deconnection() {
+
+        new AlertDialog.Builder(getContext())
+                .setTitle("Déconnexion")
+                .setMessage("Voulez-vous vraiment vous déconnecter ?")
+                .setPositiveButton("Oui", (dialog, which) -> {
+
+                    // 🔥 Retour login (recommandé)
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+
+                    // fermer l'activité actuelle
+                    getActivity().finish();
+                })
+                .setNegativeButton("Annuler", null)
+                .show();
     }
 }

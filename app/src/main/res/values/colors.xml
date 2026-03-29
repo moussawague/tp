@@ -9,4 +9,5 @@
     <color name="colorPrimaryDark">#1e1e2e</color>
 
     <color name="textColorPrimary">#cdd6f4</color>
+    <color name="red">#F44336</color>
 </resources>

@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.projet.R;
-import com.example.projet.ResidentAdapter;
+import com.example.projet.adapters.ResidentAdapter;
 import com.example.projet.entities.Appliance;
 import com.example.projet.entities.Resident;
 import com.example.projet.entities.Habitat;
@@ -23,7 +23,7 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstFragment extends Fragment {
+public class HabitatsFragment extends Fragment {
 
     private ListView listView;
     private ArrayList<Resident> residentList = new ArrayList<>();
@@ -34,7 +34,7 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_habitats, container, false);
         listView = view.findViewById(R.id.list_users);
 
         loadUsers();

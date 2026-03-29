@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mon Habitat"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:gravity="start"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/txtFloor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Étage : --"
+                    android:textSize="17sp"
+                    android:textColor="#555555"
+                    android:drawableStart="@android:drawable/ic_menu_sort_by_size"
+                    android:drawablePadding="12dp"/>
+
+                <TextView
+                    android:id="@+id/txtArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Surface : -- m²"
+                    android:textSize="17sp"
+                    android:textColor="#555555"
+                    android:layout_marginTop="12dp"
+                    android:drawableStart="@android:drawable/ic_menu_compass"
+                    android:drawablePadding="12dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="#1A237E"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONSOMMATION TOTALE"
+                    android:textColor="#BBDEFB"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtConsumption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 W"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mes équipements"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAppliances"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
+</ScrollView>

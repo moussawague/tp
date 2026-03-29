@@ -10,8 +10,19 @@
         android:title="@string/fragment2" />
     <item
         android:id="@+id/nav_third"
-        android:icon="@drawable/deconnection"
+        android:icon="@drawable/profil"
+        android:title="@string/fragment3" />
+    <item
+        android:id="@+id/nav_fourth"
+        android:icon="@drawable/profil"
+        android:title="@string/fragment4" />
+    <item
+        android:id="@+id/nav_fifth"
+        android:icon="@drawable/profil"
+        android:title="@string/fragment5" />
+    <item
+        android:id="@+id/nav_sixth"
+        android:icon="@drawable/profil"
         android:title="@string/deconnexion" />
-
-
 </menu>
+
